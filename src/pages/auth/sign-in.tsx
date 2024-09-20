@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const SchemaEmail = zod.object({
   email: zod.string().email({ message: "Please provide a valid email." }),
@@ -22,13 +24,26 @@ export default function SignIn() {
   });
 
   async function handleSignIn(data: SchemaEmailType) {
-    console.log(data);
+    try {
+      console.log(data);
+      toast.success("Enviamos um link de autenticacao para seu e-mail", {
+        action: {
+          label: "Reenviar",
+          onClick: () => handleSignIn(data),
+        },
+      });
+    } catch {
+      toast.error("credenciais invalidas");
+    }
   }
 
   return (
     <div>
       <Helmet title="login" />
       <div className="p-8">
+        <Button variant="ghost" asChild className="absolute right-8 top-8">
+          <Link to="/sign-up">Novo estabelecimento</Link>
+        </Button>
         <div className="w-[250px] flex flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
@@ -47,10 +62,8 @@ export default function SignIn() {
               <Input id="email" type="email" {...register("email")} />
             </div>
             {errors.email && (
-                <p className="text-red-500 text-sm">
-                  {errors.email.message}
-                </p>
-              )}
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
             <Button disabled={isSubmitting} className="w-full" type="submit">
               Acessar painel
             </Button>

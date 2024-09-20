@@ -9,7 +9,7 @@ export default function App() {
       <HelmetProvider>
         {/* template de titulos  %S substituido POR TITULO CADA AQUELA PAGINA*/}
         <Helmet titleTemplate="%s | pizza.shop" />
-        <Toaster />
+        <Toaster richColors />
         <RouterProvider router={router} />
       </HelmetProvider>
     </div>
