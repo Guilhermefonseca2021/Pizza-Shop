@@ -1,14 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableRow,
 } from "@/components/ui/table";
-import { Search } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import OrderTableRow from "./order-table-row";
+import OrderTableFilters from "./order-table-filters";
 
 export default function Orders() {
   return (
@@ -18,31 +16,25 @@ export default function Orders() {
         <h1>Pedidos</h1>
       </div>
       <div className="space-y-2.5 w-full">
-        <form className="flex items-center gap-2" action="">
-          <span className="text-sm font-semibold">Filtros</span>
-          <Input className="h-8 w-[320px]" placeholder="Nome do cliente" />
-        </form>
+        <OrderTableFilters />
         <div className="border rounded-md">
           <Table>
             <TableRow>
-              <TableHead>Identificador</TableHead>
-              <TableHead>Realizado ha</TableHead>
-              <TableHead>Status</TableHead>
+              <TableHead className="w-[64px]"></TableHead>
+              <TableHead className="w-[140px]">Identificador</TableHead>
+              <TableHead className="w-[180px]">Realizado ha</TableHead>
+              <TableHead className="w-[140px]">Status</TableHead>
               <TableHead>Cliente</TableHead>
-              <TableHead>Total Do Pedido</TableHead>
+              <TableHead className="w-[140px]">Total Do Pedido</TableHead>
+              <TableHead className="w-[164px]"></TableHead>
+              <TableHead className="w-[132px]"></TableHead>
             </TableRow>
             <TableBody>
-              <TableRow>
-                <TableCell>
-                    <Button variant="outline">
-                        <Search className="h-3 w-3" />
-                        <span className="sr-only">Detalhes do pedido</span>
-                    </Button>
-                </TableCell>
-                <TableCell>
-                    
-                </TableCell>
-              </TableRow>
+              {Array.from({ length: 10 }).map((_, i) => {
+                return (
+                  <OrderTableRow key={i} />
+                );
+              })}
             </TableBody>
           </Table>
         </div>
