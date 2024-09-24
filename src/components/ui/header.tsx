@@ -11,11 +11,11 @@ export default function Header() {
         <SeparatorVertical className="h-6" />
         <nav className="flex items-center space-x-4 lg:space-x-6">
           <NavLink to="/">
-            <Home className="h-4 p-4" />
+            <Home className="h-4 w-4" />
             Inicio
           </NavLink>
           <NavLink to="orders">
-            <UtensilsCrossed   className="h-4 p-4"/>
+            <UtensilsCrossed   className="h-4 w-4"/>
             pedidos
           </NavLink>
         </nav>
