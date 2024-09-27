@@ -6,24 +6,45 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ResponsiveContainer,
-  LineChart,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
-  Line,
   Tooltip,
+  ResponsiveContainer,
 } from "recharts";
-import colors from 'tailwindcss/colors'
+import colors from "tailwindcss/colors";
 
 const data = [
-  { date: "10/12", revenue: 120 },
-  { date: "12/12", revenue: 40 },
-  { date: "13/12", revenue: 543 },
-  { date: "14/12", revenue: 44 },
-  { date: "15/12", revenue: 66 },
-  { date: "16/12", revenue: 566 },
-  { date: "17/12", revenue: 87 },
+  {
+    date: "11/12",
+    selled: 500,
+  },
+  {
+    date: "12/12",
+    selled: 300,
+  },
+  {
+    date: "13/12",
+    selled: 200,
+  },
+  {
+    date: "14/12",
+    selled: 566,
+  },
+  {
+    date: "15/12",
+    selled: 590,
+  },
+  {
+    date: "16/12",
+    selled: 230,
+  },
+  {
+    date: "17/12",
+    selled: 350,
+  },
 ];
 
 export default function RevenueChart() {
@@ -37,34 +58,40 @@ export default function RevenueChart() {
           <CardDescription>Receita diaria no periodo</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="grid grid-cols-9 gap-4">
-      <ResponsiveContainer width="100%" height={248}>
-            <LineChart data={data} style={{ fontsize: 12 }}>
-              <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16} />
-
-              <YAxis
-                stroke="#888"
-                axisLine={false}
-                tickLine={false}
-                width={90}
-                tickFormatter={(value: number) =>
-                  value.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                }
-              />
-
-              <CartesianGrid vertical={false} className="stroke-muted" />
-
-              <Line
-                type="linear"
-                strokeWidth={2}
-                dataKey="receipt"
-                stroke={colors.violet['500']}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+      <CardContent>
+        <ResponsiveContainer width="100%" height={280}>
+          <AreaChart
+            data={data}
+            margin={{
+              top: 10,
+              right: 30,
+              left: 0,
+              bottom: 0,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16} />
+            <YAxis
+              stroke="#888888"
+              tickLine={false}
+              axisLine={false}
+              width={80}
+              tickFormatter={(value: number) =>
+                value.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })
+              }
+            />
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="selled"
+              stroke={colors.violet[400]}
+              fill="#8884d8"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );
