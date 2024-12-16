@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+## Pizza Shop Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O Pizza Shop Dashboard é um painel administrativo desenvolvido em React para gerenciar pedidos, produtos e clientes de uma pizzaria. Ele é projetado para ser intuitivo e funcional, facilitando o controle do negócio em tempo real.
 
-Currently, two official plugins are available:
+<img src="https://github.com/user-attachments/assets/aa77b782-f928-483c-a69c-691cf502b32d" alt="">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Gestão de Pedidos: Visualização de pedidos em andamento, concluídos e pendentes.
+- Catálogo de Produtos: Adicionar, editar e remover produtos do cardápio.
+- Gestão de Clientes: Lista de clientes registrados e suas informações de contato.
+- Análise de Vendas: Gráficos e relatórios sobre desempenho de vendas e produtos mais vendidos.
+- Notificações em Tempo Real: Atualizações automáticas sobre novos pedidos.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tecnologias Utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- [React~]
+  React Router
+  Context API
+- [Tailwind]
+- [Recharts]
+- [Node.js]
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Requisitos
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Node.js v16 ou superior, Vscode para rodar o codigo.
+
+## Instalação
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+$ clone o repositorio
+git clone https://github.com/seuusuario/pizza-shop.git
+$ entre no arquivo
+cd pizza-shop-dashboard
+$ Instale as dependências:
+npm install
+$ Inicie o servidor de desenvolvimento:
+npm start
 ```
+
+<img src="https://github.com/user-attachments/assets/ab5552a8-fb23-40d0-b3de-2f69f5e4f129" alt="">
+
+rode o projeto: <a href="https://pizza-shop-g4m4pudet-guilhermefonseca2021s-projects.vercel.app/">Clique aqui</a>
+
+## Licença
+
+Este projeto está licenciado sob a MIT License.
+Para mais informações ou dúvidas, entre em contato:
+
